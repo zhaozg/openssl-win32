@@ -126,11 +126,6 @@
 #include <stdio.h>
 #endif
 
-/* Get FIPS renames if needed */
-#if defined(OPENSSL_FIPSCANISTER) && defined(OPENSSL_FIPSAPI)
-#include <openssl/fips.h>
-#endif
-
 #include <openssl/stack.h>
 #include <openssl/safestack.h>
 #include <openssl/opensslv.h>
@@ -143,16 +138,6 @@
 /* Resolve problems on some operating systems with symbol names that clash
    one way or another */
 #include <openssl/symhacks.h>
-
-/* For FIPS mode rename all OpenSSL symbols to avoid clashes with a
- * non-FIPS OpenSSL.
- */
-
-#if defined(OPENSSL_FIPSCANISTER)
-# include <openssl/fipssyms.h>
-#else
-# define __fips_constseg
-#endif
 
 #ifdef  __cplusplus
 extern "C" {

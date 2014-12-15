@@ -1,4 +1,4 @@
-SET PATH=E:\Totalcmd\Tools\Portable\PortableApps\CommonFiles\Perl\perl\bin;%PATH%
+E:\portableDev\portable.cmd
 perl Configure -DOPENSSL_CCSTC VC-WIN32 --prefix=..\master
 ms\do_nasm
 nmake -f ms\nt.mak

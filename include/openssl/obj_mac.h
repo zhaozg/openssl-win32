@@ -2745,6 +2745,18 @@
 #define LN_aes_256_ctr		"aes-256-ctr"
 #define NID_aes_256_ctr		906
 
+#define SN_aes_128_ocb		"AES-128-OCB"
+#define LN_aes_128_ocb		"aes-128-ocb"
+#define NID_aes_128_ocb		958
+
+#define SN_aes_192_ocb		"AES-192-OCB"
+#define LN_aes_192_ocb		"aes-192-ocb"
+#define NID_aes_192_ocb		959
+
+#define SN_aes_256_ocb		"AES-256-OCB"
+#define LN_aes_256_ocb		"aes-256-ocb"
+#define NID_aes_256_ocb		960
+
 #define SN_aes_128_xts		"AES-128-XTS"
 #define LN_aes_128_xts		"aes-128-xts"
 #define NID_aes_128_xts		913
@@ -4194,54 +4206,54 @@
 #define OBJ_jurisdictionCountryName		1L,3L,6L,1L,4L,1L,311L,60L,2L,1L,3L
 
 #define SN_gmsm4_ecb		"CCSTC-GMSM4-ECB"
-#define LN_gmsm4_ecb		"gmsm4-ecb"
-#define NID_gmsm4_ecb		958
+#define LN_gmsm4_ecb		"gmsm4_ecb"
+#define NID_gmsm4_ecb		961
 #define OBJ_gmsm4_ecb		1L,2L,156L,10197L,1L,104L
 
 #define SN_gmsm4_cbc		"CCSTC-GMSM4-CBC"
-#define LN_gmsm4_cbc		"gmsm4-cbc"
-#define NID_gmsm4_cbc		959
+#define LN_gmsm4_cbc		"gmsm4_cbc"
+#define NID_gmsm4_cbc		962
 
 #define SN_gmsm4_cfb128		"CCSTC-GMSM4-CFB"
-#define LN_gmsm4_cfb128		"gmsm4-cfb"
-#define NID_gmsm4_cfb128		960
+#define LN_gmsm4_cfb128		"gmsm4_cfb"
+#define NID_gmsm4_cfb128		963
 
 #define SN_gmsm4_ofb128		"CCSTC-GMSM4-OFB"
-#define LN_gmsm4_ofb128		"gmsm4-ofb"
-#define NID_gmsm4_ofb128		961
+#define LN_gmsm4_ofb128		"gmsm4_ofb"
+#define NID_gmsm4_ofb128		964
 
 #define SN_gmsm2		"CCSTC-GMSM2"
 #define LN_gmsm2		"gmsm2"
-#define NID_gmsm2		962
+#define NID_gmsm2		965
 #define OBJ_gmsm2		1L,2L,156L,10197L,1L,301L
 
 #define SN_gmsm2_dsa		"CCSTC-GMSM2-DSA"
-#define LN_gmsm2_dsa		"gmsm2-dsa"
-#define NID_gmsm2_dsa		963
+#define LN_gmsm2_dsa		"gmsm2_dsa"
+#define NID_gmsm2_dsa		966
 #define OBJ_gmsm2_dsa		1L,2L,156L,10197L,1L,301L,1L
 
 #define SN_gmsm2_xch		"CCSTC-GMSM2-XHG"
-#define LN_gmsm2_xch		"gmsm2-xch"
-#define NID_gmsm2_xch		964
+#define LN_gmsm2_xch		"gmsm2_xch"
+#define NID_gmsm2_xch		967
 #define OBJ_gmsm2_xch		1L,2L,156L,10197L,1L,301L,2L
 
 #define SN_gmsm2_enc		"CCSTC-GMSM2-ENC"
-#define LN_gmsm2_enc		"gmsm2-enc"
-#define NID_gmsm2_enc		965
+#define LN_gmsm2_enc		"gmsm2_enc"
+#define NID_gmsm2_enc		968
 #define OBJ_gmsm2_enc		1L,2L,156L,10197L,1L,301L,3L
 
 #define SN_gmsm3		"CCSTC-GMSM3"
 #define LN_gmsm3		"gmsm3"
-#define NID_gmsm3		966
+#define NID_gmsm3		969
 #define OBJ_gmsm3		1L,2L,156L,10197L,1L,401L,1L
 
 #define SN_SM3WithSM2Encryption		"CCSTC-SM2-SM3"
 #define LN_SM3WithSM2Encryption		"SM3WithSM2Encryption"
-#define NID_SM3WithSM2Encryption		967
+#define NID_SM3WithSM2Encryption		970
 #define OBJ_SM3WithSM2Encryption		1L,2L,156L,10197L,1L,501L
 
 #define SN_SHA1WithSM2Encryption		"CCSTC-SM2-SHA1"
 #define LN_SHA1WithSM2Encryption		"SHA1WithSM2Encryption"
-#define NID_SHA1WithSM2Encryption		968
+#define NID_SHA1WithSM2Encryption		971
 #define OBJ_SHA1WithSM2Encryption		1L,2L,156L,10197L,1L,502L
 
