@@ -5,12 +5,15 @@
 extern "C" {
 #endif
 /* OpenSSL was configured with the following options: */
-#ifndef OPENSSL_SYSNAME_WIN32
-# define OPENSSL_SYSNAME_WIN32
+#ifndef OPENSSL_SYS_WIN32
+# define OPENSSL_SYS_WIN32
 #endif
 #ifndef OPENSSL_DOING_MAKEDEPEND
 
 
+#ifndef OPENSSL_NO_DEPRECATED
+# define OPENSSL_NO_DEPRECATED
+#endif
 #ifndef OPENSSL_NO_EC_NISTP_64_GCC_128
 # define OPENSSL_NO_EC_NISTP_64_GCC_128
 #endif
@@ -56,6 +59,9 @@ extern "C" {
    who haven't had the time to do the appropriate changes in their
    applications.  */
 #ifdef OPENSSL_ALGORITHM_DEFINES
+# if defined(OPENSSL_NO_DEPRECATED) && !defined(NO_DEPRECATED)
+#  define NO_DEPRECATED
+# endif
 # if defined(OPENSSL_NO_EC_NISTP_64_GCC_128) && !defined(NO_EC_NISTP_64_GCC_128)
 #  define NO_EC_NISTP_64_GCC_128
 # endif
@@ -94,6 +100,23 @@ extern "C" {
 #define OPENSSL_CPUID_OBJ
 
 /* crypto/opensslconf.h.in */
+
+/*
+ * Applications should use -DOPENSSL_USE_DEPRECATED to enable access to
+ * deprecated functions. But if the library has been built to disable
+ * deprecated functions then this will not work
+ */
+#if defined(OPENSSL_NO_DEPRECATED) && defined(OPENSSL_USE_DEPRECATED)
+#error "OPENSSL_USE_DEPRECATED has been defined, but OpenSSL has been built without support for deprecated functions"
+#endif
+
+/* Test for support for deprecated attribute */
+#if __GNUC__ > 3 || \
+  (__GNUC__ == 3 && __GNUC_MINOR__ > 0)
+#define DECLARE_DEPRECATED(f)    f __attribute__ ((deprecated))
+#else
+#define DECLARE_DEPRECATED(f)    f
+#endif
 
 /* Generate 80386 code? */
 #undef I386_ONLY
@@ -233,8 +256,6 @@ YOU SHOULD NOT HAVE BOTH DES_RISC1 AND DES_RISC2 DEFINED!!!!!
   /* Unknown */
 #elif defined( __aux )		/* 68K */
   /* Unknown */
-#elif defined( __dgux )		/* 88K (but P6 in latest boxes) */
-#  define DES_UNROLL
 #elif defined( __sgi )		/* Newer MIPS */
 #  define DES_PTR
 #  define DES_RISC2
