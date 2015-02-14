@@ -141,6 +141,8 @@ typedef struct _ossl_old_des_ks_struct {
         DES_ecb3_encrypt((i),(o),&(k1),&(k2),&(k3),(e))
 #  define des_ede3_cbc_encrypt(i,o,l,k1,k2,k3,iv,e)\
         DES_ede3_cbc_encrypt((i),(o),(l),&(k1),&(k2),&(k3),(iv),(e))
+#  define des_ede3_cbcm_encrypt(i,o,l,k1,k2,k3,iv1,iv2,e)\
+        DES_ede3_cbcm_encrypt((i),(o),(l),&(k1),&(k2),&(k3),(iv1),(iv2),(e))
 #  define des_ede3_cfb64_encrypt(i,o,l,k1,k2,k3,iv,n,e)\
         DES_ede3_cfb64_encrypt((i),(o),(l),&(k1),&(k2),&(k3),(iv),(n),(e))
 #  define des_ede3_ofb64_encrypt(i,o,l,k1,k2,k3,iv,n)\
@@ -175,6 +177,14 @@ typedef struct _ossl_old_des_ks_struct {
         DES_enc_write((f),(b),(l),&(k),(iv))
 #  define des_fcrypt(b,s,r)\
         DES_fcrypt((b),(s),(r))
+#  if 0
+#   define des_crypt(b,s)\
+        DES_crypt((b),(s))
+#   if !defined(PERL5) && !defined(__FreeBSD__) && !defined(NeXT) && !defined(__OpenBSD__)
+#    define crypt(b,s)\
+        DES_crypt((b),(s))
+#   endif
+#  endif
 #  define des_ofb_encrypt(i,o,n,l,k,iv)\
         DES_ofb_encrypt((i),(o),(n),(l),&(k),(iv))
 #  define des_pcbc_encrypt(i,o,l,k,iv,e)\
@@ -273,6 +283,10 @@ typedef struct _ossl_old_des_ks_struct {
         _ossl_old_des_fcrypt((b),(s),(r))
 #  define des_crypt(b,s)\
         _ossl_old_des_crypt((b),(s))
+#  if 0
+#   define crypt(b,s)\
+        _ossl_old_crypt((b),(s))
+#  endif
 #  define des_ofb_encrypt(i,o,n,l,k,iv)\
         _ossl_old_des_ofb_encrypt((i),(o),(n),(l),(k),(iv))
 #  define des_pcbc_encrypt(i,o,l,k,iv,e)\
@@ -380,6 +394,12 @@ void _ossl_old_des_ede3_ofb64_encrypt(unsigned char *in, unsigned char *out,
                                       _ossl_old_des_key_schedule ks2,
                                       _ossl_old_des_key_schedule ks3,
                                       _ossl_old_des_cblock *ivec, int *num);
+# if 0
+void _ossl_old_des_xwhite_in2out(_ossl_old_des_cblock (*des_key),
+                                 _ossl_old_des_cblock (*in_white),
+                                 _ossl_old_des_cblock (*out_white));
+# endif
+
 int _ossl_old_des_enc_read(int fd, char *buf, int len,
                            _ossl_old_des_key_schedule sched,
                            _ossl_old_des_cblock *iv);
@@ -388,7 +408,7 @@ int _ossl_old_des_enc_write(int fd, char *buf, int len,
                             _ossl_old_des_cblock *iv);
 char *_ossl_old_des_fcrypt(const char *buf, const char *salt, char *ret);
 char *_ossl_old_des_crypt(const char *buf, const char *salt);
-# if !defined(PERL5)
+# if !defined(PERL5) && !defined(NeXT)
 char *_ossl_old_crypt(const char *buf, const char *salt);
 # endif
 void _ossl_old_des_ofb_encrypt(unsigned char *in, unsigned char *out,

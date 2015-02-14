@@ -914,6 +914,7 @@ const EVP_CIPHER *EVP_camellia_128_cfb8(void);
 const EVP_CIPHER *EVP_camellia_128_cfb128(void);
 #  define EVP_camellia_128_cfb EVP_camellia_128_cfb128
 const EVP_CIPHER *EVP_camellia_128_ofb(void);
+const EVP_CIPHER *EVP_camellia_128_ctr(void);
 const EVP_CIPHER *EVP_camellia_192_ecb(void);
 const EVP_CIPHER *EVP_camellia_192_cbc(void);
 const EVP_CIPHER *EVP_camellia_192_cfb1(void);
@@ -921,6 +922,7 @@ const EVP_CIPHER *EVP_camellia_192_cfb8(void);
 const EVP_CIPHER *EVP_camellia_192_cfb128(void);
 #  define EVP_camellia_192_cfb EVP_camellia_192_cfb128
 const EVP_CIPHER *EVP_camellia_192_ofb(void);
+const EVP_CIPHER *EVP_camellia_192_ctr(void);
 const EVP_CIPHER *EVP_camellia_256_ecb(void);
 const EVP_CIPHER *EVP_camellia_256_cbc(void);
 const EVP_CIPHER *EVP_camellia_256_cfb1(void);
@@ -928,6 +930,7 @@ const EVP_CIPHER *EVP_camellia_256_cfb8(void);
 const EVP_CIPHER *EVP_camellia_256_cfb128(void);
 #  define EVP_camellia_256_cfb EVP_camellia_256_cfb128
 const EVP_CIPHER *EVP_camellia_256_ofb(void);
+const EVP_CIPHER *EVP_camellia_256_ctr(void);
 # endif
 
 # ifndef OPENSSL_NO_SEED
@@ -1085,6 +1088,8 @@ int EVP_PBE_CipherInit(ASN1_OBJECT *pbe_obj, const char *pass, int passlen,
 # define EVP_PBE_TYPE_OUTER      0x0
 /* Is an PRF type OID */
 # define EVP_PBE_TYPE_PRF        0x1
+/* Is a PKCS#5 v2.0 KDF */
+# define EVP_PBE_TYPE_KDF        0x2
 
 int EVP_PBE_alg_add_type(int pbe_type, int pbe_nid, int cipher_nid,
                          int md_nid, EVP_PBE_KEYGEN *keygen);
@@ -1204,6 +1209,10 @@ void EVP_PKEY_asn1_set_security_bits(EVP_PKEY_ASN1_METHOD *ameth,
 # define  EVP_PKEY_CTX_get_signature_md(ctx, pmd)        \
                 EVP_PKEY_CTX_ctrl(ctx, -1, EVP_PKEY_OP_TYPE_SIG,  \
                                         EVP_PKEY_CTRL_GET_MD, 0, (void *)pmd)
+
+# define  EVP_PKEY_CTX_set_mac_key(ctx, key, len)        \
+                EVP_PKEY_CTX_ctrl(ctx, -1, EVP_PKEY_OP_KEYGEN,  \
+                                  EVP_PKEY_CTRL_SET_MAC_KEY, len, (void *)key)
 
 # define EVP_PKEY_CTRL_MD                1
 # define EVP_PKEY_CTRL_PEER_KEY          2

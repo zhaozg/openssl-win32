@@ -3075,6 +3075,11 @@
 #define NID_friendlyCountryName         490
 #define OBJ_friendlyCountryName         OBJ_pilotAttributeType,43L
 
+#define SN_uniqueIdentifier             "uid"
+#define LN_uniqueIdentifier             "uniqueIdentifier"
+#define NID_uniqueIdentifier            102
+#define OBJ_uniqueIdentifier            OBJ_pilotAttributeType,44L
+
 #define LN_organizationalStatus         "organizationalStatus"
 #define NID_organizationalStatus                491
 #define OBJ_organizationalStatus                OBJ_pilotAttributeType,45L
@@ -3944,6 +3949,26 @@
 #define NID_camellia_128_cfb128         757
 #define OBJ_camellia_128_cfb128         OBJ_camellia,4L
 
+#define SN_camellia_128_gcm             "CAMELLIA-128-GCM"
+#define LN_camellia_128_gcm             "camellia-128-gcm"
+#define NID_camellia_128_gcm            961
+#define OBJ_camellia_128_gcm            OBJ_camellia,6L
+
+#define SN_camellia_128_ccm             "CAMELLIA-128-CCM"
+#define LN_camellia_128_ccm             "camellia-128-ccm"
+#define NID_camellia_128_ccm            962
+#define OBJ_camellia_128_ccm            OBJ_camellia,7L
+
+#define SN_camellia_128_ctr             "CAMELLIA-128-CTR"
+#define LN_camellia_128_ctr             "camellia-128-ctr"
+#define NID_camellia_128_ctr            963
+#define OBJ_camellia_128_ctr            OBJ_camellia,9L
+
+#define SN_camellia_128_cmac            "CAMELLIA-128-CMAC"
+#define LN_camellia_128_cmac            "camellia-128-cmac"
+#define NID_camellia_128_cmac           964
+#define OBJ_camellia_128_cmac           OBJ_camellia,10L
+
 #define SN_camellia_192_ecb             "CAMELLIA-192-ECB"
 #define LN_camellia_192_ecb             "camellia-192-ecb"
 #define NID_camellia_192_ecb            755
@@ -3959,6 +3984,26 @@
 #define NID_camellia_192_cfb128         758
 #define OBJ_camellia_192_cfb128         OBJ_camellia,24L
 
+#define SN_camellia_192_gcm             "CAMELLIA-192-GCM"
+#define LN_camellia_192_gcm             "camellia-192-gcm"
+#define NID_camellia_192_gcm            965
+#define OBJ_camellia_192_gcm            OBJ_camellia,26L
+
+#define SN_camellia_192_ccm             "CAMELLIA-192-CCM"
+#define LN_camellia_192_ccm             "camellia-192-ccm"
+#define NID_camellia_192_ccm            966
+#define OBJ_camellia_192_ccm            OBJ_camellia,27L
+
+#define SN_camellia_192_ctr             "CAMELLIA-192-CTR"
+#define LN_camellia_192_ctr             "camellia-192-ctr"
+#define NID_camellia_192_ctr            967
+#define OBJ_camellia_192_ctr            OBJ_camellia,29L
+
+#define SN_camellia_192_cmac            "CAMELLIA-192-CMAC"
+#define LN_camellia_192_cmac            "camellia-192-cmac"
+#define NID_camellia_192_cmac           968
+#define OBJ_camellia_192_cmac           OBJ_camellia,30L
+
 #define SN_camellia_256_ecb             "CAMELLIA-256-ECB"
 #define LN_camellia_256_ecb             "camellia-256-ecb"
 #define NID_camellia_256_ecb            756
@@ -3973,6 +4018,26 @@
 #define LN_camellia_256_cfb128          "camellia-256-cfb"
 #define NID_camellia_256_cfb128         759
 #define OBJ_camellia_256_cfb128         OBJ_camellia,44L
+
+#define SN_camellia_256_gcm             "CAMELLIA-256-GCM"
+#define LN_camellia_256_gcm             "camellia-256-gcm"
+#define NID_camellia_256_gcm            969
+#define OBJ_camellia_256_gcm            OBJ_camellia,46L
+
+#define SN_camellia_256_ccm             "CAMELLIA-256-CCM"
+#define LN_camellia_256_ccm             "camellia-256-ccm"
+#define NID_camellia_256_ccm            970
+#define OBJ_camellia_256_ccm            OBJ_camellia,47L
+
+#define SN_camellia_256_ctr             "CAMELLIA-256-CTR"
+#define LN_camellia_256_ctr             "camellia-256-ctr"
+#define NID_camellia_256_ctr            971
+#define OBJ_camellia_256_ctr            OBJ_camellia,49L
+
+#define SN_camellia_256_cmac            "CAMELLIA-256-CMAC"
+#define LN_camellia_256_cmac            "camellia-256-cmac"
+#define NID_camellia_256_cmac           972
+#define OBJ_camellia_256_cmac           OBJ_camellia,50L
 
 #define SN_camellia_128_cfb1            "CAMELLIA-128-CFB1"
 #define LN_camellia_128_cfb1            "camellia-128-cfb1"
@@ -4205,54 +4270,54 @@
 #define NID_jurisdictionCountryName             957
 #define OBJ_jurisdictionCountryName             1L,3L,6L,1L,4L,1L,311L,60L,2L,1L,3L
 
-#define SN_gmsm4_ecb		"CCSTC-GMSM4-ECB"
-#define LN_gmsm4_ecb		"gmsm4_ecb"
-#define NID_gmsm4_ecb		961
-#define OBJ_gmsm4_ecb		1L,2L,156L,10197L,1L,104L
+#define SN_gmsm4_ecb            "CCSTC-GMSM4-ECB"
+#define LN_gmsm4_ecb            "gmsm4_ecb"
+#define NID_gmsm4_ecb           973
+#define OBJ_gmsm4_ecb           1L,2L,156L,10197L,1L,104L
 
-#define SN_gmsm4_cbc		"CCSTC-GMSM4-CBC"
-#define LN_gmsm4_cbc		"gmsm4_cbc"
-#define NID_gmsm4_cbc		962
+#define SN_gmsm4_cbc            "CCSTC-GMSM4-CBC"
+#define LN_gmsm4_cbc            "gmsm4_cbc"
+#define NID_gmsm4_cbc           974
 
-#define SN_gmsm4_cfb128		"CCSTC-GMSM4-CFB"
-#define LN_gmsm4_cfb128		"gmsm4_cfb"
-#define NID_gmsm4_cfb128		963
+#define SN_gmsm4_cfb128         "CCSTC-GMSM4-CFB"
+#define LN_gmsm4_cfb128         "gmsm4_cfb"
+#define NID_gmsm4_cfb128                975
 
-#define SN_gmsm4_ofb128		"CCSTC-GMSM4-OFB"
-#define LN_gmsm4_ofb128		"gmsm4_ofb"
-#define NID_gmsm4_ofb128		964
+#define SN_gmsm4_ofb128         "CCSTC-GMSM4-OFB"
+#define LN_gmsm4_ofb128         "gmsm4_ofb"
+#define NID_gmsm4_ofb128                976
 
-#define SN_gmsm2		"CCSTC-GMSM2"
-#define LN_gmsm2		"gmsm2"
-#define NID_gmsm2		965
-#define OBJ_gmsm2		1L,2L,156L,10197L,1L,301L
+#define SN_gmsm2                "CCSTC-GMSM2"
+#define LN_gmsm2                "gmsm2"
+#define NID_gmsm2               977
+#define OBJ_gmsm2               1L,2L,156L,10197L,1L,301L
 
-#define SN_gmsm2_dsa		"CCSTC-GMSM2-DSA"
-#define LN_gmsm2_dsa		"gmsm2_dsa"
-#define NID_gmsm2_dsa		966
-#define OBJ_gmsm2_dsa		1L,2L,156L,10197L,1L,301L,1L
+#define SN_gmsm2_dsa            "CCSTC-GMSM2-DSA"
+#define LN_gmsm2_dsa            "gmsm2_dsa"
+#define NID_gmsm2_dsa           978
+#define OBJ_gmsm2_dsa           1L,2L,156L,10197L,1L,301L,1L
 
-#define SN_gmsm2_xch		"CCSTC-GMSM2-XHG"
-#define LN_gmsm2_xch		"gmsm2_xch"
-#define NID_gmsm2_xch		967
-#define OBJ_gmsm2_xch		1L,2L,156L,10197L,1L,301L,2L
+#define SN_gmsm2_xch            "CCSTC-GMSM2-XHG"
+#define LN_gmsm2_xch            "gmsm2_xch"
+#define NID_gmsm2_xch           979
+#define OBJ_gmsm2_xch           1L,2L,156L,10197L,1L,301L,2L
 
-#define SN_gmsm2_enc		"CCSTC-GMSM2-ENC"
-#define LN_gmsm2_enc		"gmsm2_enc"
-#define NID_gmsm2_enc		968
-#define OBJ_gmsm2_enc		1L,2L,156L,10197L,1L,301L,3L
+#define SN_gmsm2_enc            "CCSTC-GMSM2-ENC"
+#define LN_gmsm2_enc            "gmsm2_enc"
+#define NID_gmsm2_enc           980
+#define OBJ_gmsm2_enc           1L,2L,156L,10197L,1L,301L,3L
 
-#define SN_gmsm3		"CCSTC-GMSM3"
-#define LN_gmsm3		"gmsm3"
-#define NID_gmsm3		969
-#define OBJ_gmsm3		1L,2L,156L,10197L,1L,401L,1L
+#define SN_gmsm3                "CCSTC-GMSM3"
+#define LN_gmsm3                "gmsm3"
+#define NID_gmsm3               981
+#define OBJ_gmsm3               1L,2L,156L,10197L,1L,401L,1L
 
-#define SN_SM3WithSM2Encryption		"CCSTC-SM2-SM3"
-#define LN_SM3WithSM2Encryption		"SM3WithSM2Encryption"
-#define NID_SM3WithSM2Encryption		970
-#define OBJ_SM3WithSM2Encryption		1L,2L,156L,10197L,1L,501L
+#define SN_SM3WithSM2Encryption         "CCSTC-SM2-SM3"
+#define LN_SM3WithSM2Encryption         "SM3WithSM2Encryption"
+#define NID_SM3WithSM2Encryption                982
+#define OBJ_SM3WithSM2Encryption                1L,2L,156L,10197L,1L,501L
 
-#define SN_SHA1WithSM2Encryption		"CCSTC-SM2-SHA1"
-#define LN_SHA1WithSM2Encryption		"SHA1WithSM2Encryption"
-#define NID_SHA1WithSM2Encryption		971
-#define OBJ_SHA1WithSM2Encryption		1L,2L,156L,10197L,1L,502L
+#define SN_SHA1WithSM2Encryption                "CCSTC-SM2-SHA1"
+#define LN_SHA1WithSM2Encryption                "SHA1WithSM2Encryption"
+#define NID_SHA1WithSM2Encryption               983
+#define OBJ_SHA1WithSM2Encryption               1L,2L,156L,10197L,1L,502L
