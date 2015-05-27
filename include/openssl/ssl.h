@@ -256,6 +256,7 @@ extern "C" {
 # define SSL_TXT_kPSK            "kPSK"
 # define SSL_TXT_kGOST           "kGOST"
 # define SSL_TXT_kSRP            "kSRP"
+# define SSL_TXT_kECC            "kECC"
 
 # define SSL_TXT_aRSA            "aRSA"
 # define SSL_TXT_aDSS            "aDSS"
@@ -297,6 +298,8 @@ extern "C" {
 # define SSL_TXT_CAMELLIA128     "CAMELLIA128"
 # define SSL_TXT_CAMELLIA256     "CAMELLIA256"
 # define SSL_TXT_CAMELLIA        "CAMELLIA"
+# define SSL_TXT_SM1             "SM1"
+# define SSL_TXT_SM4             "SM4"
 
 # define SSL_TXT_MD5             "MD5"
 # define SSL_TXT_SHA1            "SHA1"
@@ -305,12 +308,14 @@ extern "C" {
 # define SSL_TXT_GOST89MAC               "GOST89MAC"
 # define SSL_TXT_SHA256          "SHA256"
 # define SSL_TXT_SHA384          "SHA384"
+# define SSL_TXT_SM3             "SM3"
 
 # define SSL_TXT_SSLV2           "SSLv2"
 # define SSL_TXT_SSLV3           "SSLv3"
 # define SSL_TXT_TLSV1           "TLSv1"
 # define SSL_TXT_TLSV1_1         "TLSv1.1"
 # define SSL_TXT_TLSV1_2         "TLSv1.2"
+# define SSL_TXT_SVTSV1          "SVTSv1"
 
 # define SSL_TXT_EXP             "EXP"
 # define SSL_TXT_EXPORT          "EXPORT"
@@ -1727,6 +1732,7 @@ extern "C" {
 # define SSL_ST_BEFORE                   0x4000
 # define SSL_ST_OK                       0x03
 # define SSL_ST_RENEGOTIATE              (0x04|SSL_ST_INIT)
+# define SSL_ST_ERR                      0x05
 
 # define SSL_CB_LOOP                     0x01
 # define SSL_CB_EXIT                     0x02
@@ -2387,6 +2393,15 @@ const SSL_METHOD *DTLS_method(void); /* DTLS 1.0 and 1.2 */
 const SSL_METHOD *DTLS_server_method(void); /* DTLS 1.0 and 1.2 */
 const SSL_METHOD *DTLS_client_method(void); /* DTLS 1.0 and 1.2 */
 
+const SSL_METHOD *SVTSv1_method(void); /* SVTSv1.0 */
+const SSL_METHOD *SVTSv1_server_method(void); /* SVTSv1.0 */
+const SSL_METHOD *SVTSv1_client_method(void); /* SVTSv1.0 */
+
+const SSL_METHOD *SVTSv1_1_method(void); /* SVTSv1.1 */
+const SSL_METHOD *SVTSv1_1_server_method(void); /* SVTSv1.1 */
+const SSL_METHOD *SVTSv1_1_client_method(void); /* SVTSv1.1 */
+
+
 STACK_OF(SSL_CIPHER) *SSL_get_ciphers(const SSL *s);
 
 int SSL_do_handshake(SSL *s);
@@ -2640,6 +2655,7 @@ void ERR_load_SSL_strings(void);
 # define SSL_F_GET_CLIENT_MASTER_KEY                      107
 # define SSL_F_GET_SERVER_FINISHED                        108
 # define SSL_F_GET_SERVER_HELLO                           109
+# define SSL_F_GET_SERVER_STATIC_DH_KEY                   340
 # define SSL_F_GET_SERVER_VERIFY                          110
 # define SSL_F_I2D_SSL_SESSION                            111
 # define SSL_F_READ_N                                     112
@@ -2670,6 +2686,7 @@ void ERR_load_SSL_strings(void);
 # define SSL_F_SSL3_CHANGE_CIPHER_STATE                   129
 # define SSL_F_SSL3_CHECK_CERT_AND_ALGORITHM              130
 # define SSL_F_SSL3_CHECK_CLIENT_HELLO                    304
+# define SSL_F_SSL3_CHECK_FINISHED                        339
 # define SSL_F_SSL3_CLIENT_HELLO                          131
 # define SSL_F_SSL3_CONNECT                               132
 # define SSL_F_SSL3_CTRL                                  213
@@ -2904,6 +2921,7 @@ void ERR_load_SSL_strings(void);
 # define SSL_R_DATA_LENGTH_TOO_LONG                       146
 # define SSL_R_DECRYPTION_FAILED                          147
 # define SSL_R_DECRYPTION_FAILED_OR_BAD_RECORD_MAC        281
+# define SSL_R_DH_KEY_TOO_SMALL                           372
 # define SSL_R_DH_PUBLIC_VALUE_LENGTH_IS_WRONG            148
 # define SSL_R_DIGEST_CHECK_FAILED                        149
 # define SSL_R_DTLS_MESSAGE_TOO_BIG                       334
