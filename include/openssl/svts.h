@@ -56,14 +56,12 @@
 #define SVTS_TXT_RSA_SM4_SHA1    "RSA-SM4-SHA1"     //{0xe0,0x1a}
 
 int svts1_accept(SSL *s);
+int svts1_connect(SSL *s);
 
 int svts1_num_ciphers(void);
 const SSL_CIPHER *svts1_get_cipher(unsigned int u);
 const SSL_CIPHER *svts1_get_cipher_by_char(const unsigned char *p);
 int svts1_put_cipher_by_char(const SSL_CIPHER *c, unsigned char *p);
-int svts1_write_bytes(SSL *s, int type, const void *buf_, int len);
-int svts1_dispatch_alert(SSL *s);
-int svts1_read_bytes(SSL *s, int type, unsigned char *buf, int len, int peek);
 
 #if 1
 # define IMPLEMENT_svts_meth_func(version, func_name, s_accept, s_connect, \
@@ -84,9 +82,9 @@ const SSL_METHOD *func_name(void)  \
                 ssl3_renegotiate, \
                 ssl3_renegotiate_check, \
                 ssl3_get_message, \
-                svts1_read_bytes, \
-                svts1_write_bytes, \
-                svts1_dispatch_alert, \
+                ssl3_read_bytes, \
+                ssl3_write_bytes, \
+                ssl3_dispatch_alert, \
                 ssl3_ctrl, \
                 ssl3_ctx_ctrl, \
                 svts1_get_cipher_by_char, \
@@ -111,7 +109,7 @@ STACK_OF(SSL_CIPHER) *svts1_bytes_to_cipher_list(SSL *s, unsigned char *p,
   int num,
   STACK_OF(SSL_CIPHER) **skp);
 
-const SSL_METHOD *SVTSv1_1_method(void); /* SVTSv1.1 */
+const SSL_METHOD *SVTSv1_1_method(void);        /* SVTSv1.1 */
 const SSL_METHOD *SVTSv1_1_server_method(void); /* SVTSv1.1 */
 const SSL_METHOD *SVTSv1_1_client_method(void); /* SVTSv1.1 */
 

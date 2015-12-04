@@ -408,6 +408,9 @@ void ENGINE_load_capi(void);
 #  ifndef OPENSSL_NO_GMP
 void ENGINE_load_gmp(void);
 #  endif
+#ifdef OPENSSL_CCSTC
+void ENGINE_load_gmsm2();
+#endif
 #  ifndef OPENSSL_NO_GOST
 void ENGINE_load_gost(void);
 #  endif
