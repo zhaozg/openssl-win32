@@ -1,6 +1,4 @@
-E:\portableDev\portable.cmd
-perl Configure -DOPENSSL_CCSTC VC-WIN32 --prefix=..\master
-ms\do_nasm
-nmake -f ms\nt.mak
-nmake -f ms\nt.mak install
-nmake -f ms\nt.mak clean
+perl Configure VC-WIN32 no-hw no-shared no-zlib --prefix=e:\work\product\openssl\master --openssldir=e:\work\product\openssl\master
+nmake
+nmake test
+nmake install
