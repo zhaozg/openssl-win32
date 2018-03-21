@@ -4193,10 +4193,16 @@
 #define NID_jurisdictionCountryName             957
 #define OBJ_jurisdictionCountryName             1L,3L,6L,1L,4L,1L,311L,60L,2L,1L,3L
 
+#define OBJ_ccstc_gm            1L,2L,156L,10197L
+
+#define OBJ_ccstc_gm_algs               OBJ_ccstc_gm,1L
+
+#define OBJ_ccstc_gm_sm2_msg            OBJ_ccstc_gm,6L,1L,4L,2L
+
 #define SN_sm4_cbc              "SM4-CBC"
 #define LN_sm4_cbc              "sm4-cbc"
 #define NID_sm4_cbc             958
-#define OBJ_sm4_cbc             1L,2L,156L,10197L,1L,104L
+#define OBJ_sm4_cbc             OBJ_ccstc_gm_algs,104L
 
 #define SN_sm4_ecb              "SM4-ECB"
 #define LN_sm4_ecb              "sm4-ecb"
@@ -4213,34 +4219,74 @@
 #define SN_SM2          "sm2"
 #define LN_SM2          "SM2"
 #define NID_SM2         962
-#define OBJ_SM2         1L,2L,156L,10197L,1L,301L
+#define OBJ_SM2         OBJ_ccstc_gm_algs,301L
 
 #define SN_SM2_DSA              "sm2-dsa"
 #define LN_SM2_DSA              "SM2-DSA"
 #define NID_SM2_DSA             963
-#define OBJ_SM2_DSA             1L,2L,156L,10197L,1L,301L,1L
+#define OBJ_SM2_DSA             OBJ_ccstc_gm_algs,301L,1L
 
 #define SN_SM2_XHG              "sm2-xch"
 #define LN_SM2_XHG              "SM2-XHG"
 #define NID_SM2_XHG             964
-#define OBJ_SM2_XHG             1L,2L,156L,10197L,1L,301L,2L
+#define OBJ_SM2_XHG             OBJ_ccstc_gm_algs,301L,2L
 
 #define SN_SM2_ENC              "sm2-enc"
 #define LN_SM2_ENC              "SM2-ENC"
 #define NID_SM2_ENC             965
-#define OBJ_SM2_ENC             1L,2L,156L,10197L,1L,301L,3L
+#define OBJ_SM2_ENC             OBJ_ccstc_gm_algs,301L,3L
 
 #define SN_SM3          "sm3"
 #define LN_SM3          "SM3"
 #define NID_SM3         966
-#define OBJ_SM3         1L,2L,156L,10197L,1L,401L,1L
+#define OBJ_SM3         OBJ_ccstc_gm_algs,401L,1L
+
+#define SN_SM3_WITH_KEY         "sm3-with-key"
+#define LN_SM3_WITH_KEY         "SM3-WITH-KEY"
+#define NID_SM3_WITH_KEY                975
+#define OBJ_SM3_WITH_KEY                OBJ_ccstc_gm_algs,401L,2L
+
+#define SN_SM3_ALL              "sm3-all"
+#define LN_SM3_ALL              "SM3-ALL"
+#define NID_SM3_ALL             976
+#define OBJ_SM3_ALL             OBJ_ccstc_gm_algs,401L
 
 #define SN_SM3WithSM2Encryption         "SM2-SM3"
 #define LN_SM3WithSM2Encryption         "SM3WithSM2Encryption"
 #define NID_SM3WithSM2Encryption                967
-#define OBJ_SM3WithSM2Encryption                1L,2L,156L,10197L,1L,501L
+#define OBJ_SM3WithSM2Encryption                OBJ_ccstc_gm_algs,501L
 
 #define SN_SHA1WithSM2Encryption                "SM2-SHA1"
 #define LN_SHA1WithSM2Encryption                "SHA1WithSM2Encryption"
 #define NID_SHA1WithSM2Encryption               968
-#define OBJ_SHA1WithSM2Encryption               1L,2L,156L,10197L,1L,502L
+#define OBJ_SHA1WithSM2Encryption               OBJ_ccstc_gm_algs,502L
+
+#define SN_sm2_data             "SM2-Data"
+#define LN_sm2_data             "sm2-data"
+#define NID_sm2_data            969
+#define OBJ_sm2_data            OBJ_ccstc_gm_sm2_msg,1L
+
+#define SN_sm2_signed           "SM2-Signed"
+#define LN_sm2_signed           "sm2-signed"
+#define NID_sm2_signed          970
+#define OBJ_sm2_signed          OBJ_ccstc_gm_sm2_msg,2L
+
+#define SN_sm2_enveloped                "SM2-Enveloped"
+#define LN_sm2_enveloped                "sm2-enveloped"
+#define NID_sm2_enveloped               971
+#define OBJ_sm2_enveloped               OBJ_ccstc_gm_sm2_msg,3L
+
+#define SN_sm2_signedenveloped          "SM2-SignedEnveloped"
+#define LN_sm2_signedenveloped          "sm2-signedenveloped"
+#define NID_sm2_signedenveloped         972
+#define OBJ_sm2_signedenveloped         OBJ_ccstc_gm_sm2_msg,4L
+
+#define SN_sm2_encrypted                "SM2-Encrypted"
+#define LN_sm2_encrypted                "sm2-encrypted"
+#define NID_sm2_encrypted               973
+#define OBJ_sm2_encrypted               OBJ_ccstc_gm_sm2_msg,5L
+
+#define SN_sm2_keyagreementinfo         "SM2-KeyAgreementInfo"
+#define LN_sm2_keyagreementinfo         "sm2-keyagreementinfo"
+#define NID_sm2_keyagreementinfo                974
+#define OBJ_sm2_keyagreementinfo                OBJ_ccstc_gm_sm2_msg,6L

@@ -209,12 +209,12 @@ DECLARE_PKCS12_STACK_OF(PKCS7)
 # define PKCS7_get_signed_attributes(si) ((si)->auth_attr)
 # define PKCS7_get_attributes(si)        ((si)->unauth_attr)
 
-# define PKCS7_type_is_signed(a) (OBJ_obj2nid((a)->type) == NID_pkcs7_signed)
+# define PKCS7_type_is_signed(a) (OBJ_obj2nid((a)->type) == NID_pkcs7_signed || OBJ_obj2nid((a)->type) == NID_sm2_signed)
 # define PKCS7_type_is_encrypted(a) (OBJ_obj2nid((a)->type) == NID_pkcs7_encrypted)
 # define PKCS7_type_is_enveloped(a) (OBJ_obj2nid((a)->type) == NID_pkcs7_enveloped)
 # define PKCS7_type_is_signedAndEnveloped(a) \
                 (OBJ_obj2nid((a)->type) == NID_pkcs7_signedAndEnveloped)
-# define PKCS7_type_is_data(a)   (OBJ_obj2nid((a)->type) == NID_pkcs7_data)
+# define PKCS7_type_is_data(a)   (OBJ_obj2nid((a)->type) == NID_pkcs7_data || OBJ_obj2nid((a)->type) == NID_sm2_data)
 # define PKCS7_type_is_digest(a)   (OBJ_obj2nid((a)->type) == NID_pkcs7_digest)
 
 # define PKCS7_set_detached(p,v) \
